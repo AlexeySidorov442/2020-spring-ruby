@@ -27,8 +27,11 @@ end
 
 def main
     array=input_data
-    methodCycles(array,2)
-    methodIterator(array,2)
+    print "Введите значение точки Х "
+    x = gets
+    x = x.to_i
+    methodCycles(array,x)
+    methodIterator(array,x)
 end
 
 if __FILE__==$0
