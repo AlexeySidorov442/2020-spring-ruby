@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative 'my_complex'
+require 'tty-prompt'
+prompt = TTY::Prompt.new
 
 first_obj = MyComplex.new(-2, 4)
 second_obj = MyComplex.new(10, 13)
@@ -16,6 +18,13 @@ p second_obj
 puts second_obj
 puts "Real = #{second_obj.real}"
 puts "Imaginary = #{second_obj.imaginary}"
+
+real = prompt.ask('Write real number', convert: :float, required: true)
+imaginary = prompt.ask('Write imaginary number', convert: :float, required: true)
+first_obj = MyComplex.new(real, imaginary)
+real = prompt.ask('Write real number', convert: :float, required: true)
+imaginary = prompt.ask('Write imaginary number', convert: :float, required: true)
+second_obj = MyComplex.new(real, imaginary)
 
 # Add first and second obj
 third_obj = first_obj.add(second_obj)
