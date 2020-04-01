@@ -41,3 +41,23 @@ puts "Результат умножения #{fifth_obj}"
 # Division two object
 sixth_obj = first_obj.divide(second_obj)
 puts "Результат деления #{sixth_obj}"
+
+
+require 'chunky_png'
+
+# Creating an image from scratch, save as an interlaced PNG
+index = 1
+png = ChunkyPNG::Image.new(30, 30, ChunkyPNG::Color::WHITE)
+while index != 29
+ png[index, 15] = ChunkyPNG::Color.rgba(10, 20, 30, 128)
+ index += 1
+end
+
+index = 1
+while index != 29
+  png[15,index] = ChunkyPNG::Color.rgba(10, 20, 30, 1280)
+  index +=1
+end
+
+png[first_obj.real,first_obj.imaginary] = ChunkyPNG::Color('red @ 0.5')
+png.save('map.png', :interlace => true)
