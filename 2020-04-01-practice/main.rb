@@ -42,7 +42,6 @@ puts "Результат умножения #{fifth_obj}"
 sixth_obj = first_obj.divide(second_obj)
 puts "Результат деления #{sixth_obj}"
 
-
 require 'chunky_png'
 
 # Creating an image from scratch, save as an interlaced PNG
