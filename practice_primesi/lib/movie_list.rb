@@ -2,6 +2,7 @@
 class MovieList
 
     require 'csv'
+    require_relative 'movie.rb'
     attr_reader :movie
 
     def initialize

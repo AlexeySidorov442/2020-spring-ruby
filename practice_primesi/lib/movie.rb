@@ -3,13 +3,7 @@
 # Class Movie
 class Movie
     include Comparable
-  attr_reader :title
-  attr_reader :kinopoisk
-  attr_reader :imdb
-  attr_reader :metacritic
-  attr_reader :rotten_tomatoes
-  require_relative 'movie_list'
-
+ 
   def initialize(title, kinopoisk, imdb, metacritic, rotten_tomatoes)
     @title = title
     @kinopoisk = Float(kinopoisk)
@@ -19,14 +13,14 @@ class Movie
   end
 
   def ogon_rating
-    (imdb + kinopoisk + (metacritic + rotten_tomatoes) / 2) / 3
+    (@imdb + @kinopoisk + (@metacritic + @rotten_tomatoes) / 2) / 3
   end
 
   def to_s
-    "Movie: #{title}. Rating fire: #{ogon_rating}"
+    "#{@title} :#{ogon_rating}"
   end
 
   def <=>(other)
-     ogon_rating <=> other.ogon_rating
+     self.ogon_rating <=> other.ogon_rating
   end
 end
