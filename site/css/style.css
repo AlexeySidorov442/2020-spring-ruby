@@ -1,0 +1,91 @@
+.page-footer {
+    padding: 40px 0;
+    background-color: #00417d;
+    color: #ffffff;
+  }
+  
+  .page-footer a {
+    margin-left: 70%;
+    color: inherit;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-position: left;
+  }
+  
+  .footer-email {
+    padding-left: 30px;
+    background-image: url("../icon-email-footer.svg");
+  }
+  
+  .footer-phone {
+    padding-left: 25px;
+    background-image: url("../icon-phone-footer.svg");
+  }
+
+  .skills-list {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .skills-list dt {
+    padding-left: 32px;
+    background-repeat: no-repeat;
+    background-position: left;
+    
+  }
+  
+   .skill-c{
+    background-image: url("../c.svg");
+   }
+
+  .skill-java{
+    background-image: url("../java.svg");
+   }
+
+  .skill-ruby{
+      background-image: url("../ruby.svg");
+  }
+  .skill-html {
+    background-image: url("../icon-html.svg");
+  }
+  
+  .skill-css {
+    background-image: url("../icon-css.svg");
+  }
+  
+  .level {
+    margin: 4px 0 16px;
+    padding: 0;
+    height: 14px;
+    font-size: 0;
+    background-color: #ffffff;
+    border: 1px solid #86c3fa;
+    border-radius: 8px;
+  }
+  
+  .level div {
+    margin: 1px;
+    height: 12px;
+    background-color: #288be6;
+    border-radius: 6px;
+  }
+
+  .grid-container{
+      padding: 50px;
+  }
+
+  .author{
+   margin-left: 75%;
+   
+  }
+
+  .statia{
+    margin-left: 25%;
+    width: 50%;
+    text-align: left;
+  }
+
+  .punkt-lab{
+    list-style-type: upper-roman;
+  }
+  
