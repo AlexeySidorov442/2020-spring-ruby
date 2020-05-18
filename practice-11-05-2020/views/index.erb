@@ -1,0 +1,26 @@
+<div class="grid-x grip-padding-x">
+   <div class="large-12 cell">
+      <h3>Список треугольников</h3>
+   </div>
+   
+    <div class="large-12 cell">
+      <table>
+      <thead>
+        <tr>
+          <th>Стороны треугольника</th>
+          <th>Площадь треугольника</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @triangles.each do |triangle| %>
+          <tr>
+            <td><%= triangle.size_a %> - <%= triangle.size_b %> - <%= triangle.size_c %> </td>
+            <td><%= triangle.area %></td>
+            
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+  </div>
+  <a href="triangle/new" class="button">Добавить треугольник</a>
+</div>

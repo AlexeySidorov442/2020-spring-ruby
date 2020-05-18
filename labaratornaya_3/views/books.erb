@@ -1,0 +1,144 @@
+<div class="grid-x grid-padding-x">
+  <div class="large-12 cell">
+    <h3>Список прочитанных книг</h3>
+  </div>
+
+ 
+  <div class="large-12 cell">
+      <table>
+      <thead>
+        <tr>
+          <th>Автор произведения</th>
+          <th>Дата прочтения</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @filtered_books.each do |book| %>
+          <tr>
+            <td><%= book.name %> &laquo;<%= book.description %>&raquo;</td>
+            <td><%= book.date %></td>
+            
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+  </div>
+
+  <div class="large-12 cell ">
+    <a href="books/new" class="button" >Добавить запись</a>
+  </div>
+
+  <div class="callout">
+      <table>
+      <thead>
+        <tr>
+          <th>Года за которые есть прочитанные книги</th>  
+        </tr>
+      </thead>
+      <tbody>
+        <% @filtered_books.uniq{|f| f.date.split('-').map(&:to_i).first}.each do |book| %>
+        <tr>
+           <td> 
+               <%= book.date.split('-').map(&:to_i).first %>
+           </td>
+          <% end %>     
+        </tr>
+      </tbody>
+      </table>
+  </div>
+
+  <div class="large-12 cell">
+    <form method="get">
+
+        <div class="large-6 cell">
+          <label>Введите год за который хотите узнать подробную информацию
+            <input type="text" placeholder="2020" name="date" value="<%= @params[:date] %>">
+          </label>
+        </div>
+        
+        <div class="large-12 cell">
+          <input type="submit" value="Узнать информацию" class="button">
+        </div>
+      </div>
+    </form>
+ 
+  
+  <% if @params[:errors].empty? %>
+  
+  <div class="large-12 cell">
+    <h4>Информация о количестве прочтенных книг в каждом месяце</h4>
+  </div>
+
+  <div class="large-12 cell">
+      <table>
+      <thead>
+      <tr>
+          <th>Январь</th>
+          <th>Февраль</th>
+          <th>Март</th>
+          <th>Апрель</th>
+          <th>Май</th>
+          <th>Июнь</th>
+          <th>Июль</th>
+          <th>Август</th>
+          <th>Сентябрь</th>
+          <th>Октябрь</th>
+          <th>Ноябрь</th>
+          <th>Декабрь</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 1}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 2}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 3}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 4}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 5}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 6}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 7}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 8}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 9}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 10}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 11}.size%>
+          </td>
+          <td>
+          <%= @filtered_books.select{|book| book.date.split('-').map(&:to_i).fetch(1) == 12}.size%>
+          </td>
+      </tr>
+      </tbody>
+      </table>
+  <% else%>
+  
+          <div class="large-12 cell callout ">
+            <p>
+              Введите год согласно правилам ниже
+            </p>
+            <ul>
+              <% @params[:errors].each do |error| %> 
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+  <% end %>
+</div>
